@@ -1,0 +1,97 @@
+.mobileMenuClip {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mobileMenuContainer {
+  position: relative;
+  background-color: var(--bg-color);
+  padding: 0.3rem 1rem 1rem 1rem;
+  border-bottom: 1px solid var(--separator-color);
+}
+
+.mobileMenuContainer::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  background-color: var(--bg-color);
+}
+
+.mobileNavItem {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  color: var(--paragraph-color);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  height: 48px;
+  padding-left: 1rem;
+}
+
+.mobileNavItemActive {
+  color: var(--heading-color);
+}
+
+.mobileNavItem:hover {
+  color: var(--heading-color);
+}
+
+button.menuButton {
+  border: 1px solid transparent;
+  height: 48px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--button-ghost-text-color);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+button.menuButton:enabled:hover {
+  background-color: var(--button-ghost-bg-hover-color);
+  color: var(--button-ghost-text-hover-color);
+}
+
+button.menuButton:enabled:active {
+  background-color: var(--button-ghost-bg-active-color);
+}
+
+.sideline {
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  background-color: var(--accent-color);
+}
+
+.mobileMenuBackdrop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.mobileMenu::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+html:has(.mobileMenu[open]) {
+  overflow: hidden;
+}

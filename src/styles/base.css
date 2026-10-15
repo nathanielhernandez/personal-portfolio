@@ -1,0 +1,39 @@
+:root {
+  --header-height: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--paragraph-color);
+  font-family: var(--font-family-sans);
+  line-height: 1.5;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.container {
+  max-width: 768px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}

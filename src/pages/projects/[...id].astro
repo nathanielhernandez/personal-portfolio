@@ -1,0 +1,31 @@
+---
+import PortfolioLayout from '../../templates/PortfolioLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+import Hero from '../../components/Hero.astro';
+import Paragraph from '../../components/ui/Paragraph.astro';
+import Section from '../../components/ui/Section.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  console.log(projects[0].data.stack);
+
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<PortfolioLayout title={project.data.title}>
+  <Hero title={project.data.title}>
+    <Paragraph>{project.data.description}</Paragraph>
+  </Hero>
+  <Section>
+    <Content />
+  </Section>
+</PortfolioLayout>

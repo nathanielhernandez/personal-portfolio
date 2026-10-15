@@ -1,0 +1,15 @@
+:root {
+  --font-family-sans-narrow: 'PT Sans Narrow', sans-serif;
+  --font-family-sans: 'Source Sans 3', sans-serif;
+  --font-family-mono: 'Source Code Pro', monospace;
+
+  --font-size-xxl: 4.5rem;
+  --font-size-xl: 3rem;
+  --font-size-lg: 2.25rem;
+  --font-size-md: 1.5rem;
+  --font-size-sm: 1.125rem;
+  --font-size-xs: 1rem;
+
+  --line-height-lg: 1.5;
+  --line-height-md: 1.2;
+}

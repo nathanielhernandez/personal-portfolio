@@ -1,0 +1,37 @@
+---
+import PortfolioLayout from '../templates/PortfolioLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import ContactForm from '../components/react/ContactForm';
+---
+
+<PortfolioLayout title="Contact">
+  <Hero title="Contact" />
+  <Section>
+    <ContactForm client:load>
+      <div class="test">
+        <Button type="submit">Send</Button>
+      </div>
+    </ContactForm>
+  </Section>
+</PortfolioLayout>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .test {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: 768px) {
+    .test {
+      flex-direction: column;
+    }
+  }
+</style>

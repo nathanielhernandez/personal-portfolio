@@ -1,0 +1,89 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'button'> {
+  variant?: 'primary' | 'secondary' | 'ghost';
+}
+
+const {
+  variant = 'primary',
+  type = 'button',
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<button type={type} {...rest} class:list={[variant, className]}>
+  <slot />
+</button>
+
+<style>
+  button {
+    border: 1px solid transparent;
+    height: 48px;
+    min-width: 6rem;
+    padding: 0 1rem;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+
+  button.primary {
+    background-color: var(--button-primary-bg-color);
+    color: var(--button-primary-text-color);
+  }
+
+  button.primary:enabled:hover {
+    background-color: var(--button-primary-bg-hover-color);
+  }
+
+  button.primary:enabled:active {
+    background-color: var(--button-primary-bg-active-color);
+  }
+
+  button.secondary {
+    background-color: var(--button-secondary-bg-color);
+    border-color: var(--button-secondary-border-color);
+    color: var(--button-secondary-text-color);
+  }
+
+  button.secondary:enabled:hover {
+    background-color: var(--button-secondary-bg-hover-color);
+    color: var(--button-secondary-text-hover-color);
+  }
+
+  button.secondary:enabled:active {
+    background-color: var(--button-secondary-bg-active-color);
+  }
+
+  button.ghost {
+    background-color: transparent;
+    color: var(--button-ghost-text-color);
+  }
+
+  button.ghost:enabled:hover {
+    background-color: var(--button-ghost-bg-hover-color);
+    color: var(--button-ghost-text-hover-color);
+  }
+
+  button.ghost:enabled:active {
+    background-color: var(--button-ghost-bg-active-color);
+  }
+
+  button:disabled {
+    background-color: var(--button-disabled-bg-color);
+    border-color: transparent;
+    color: var(--button-disabled-text-color);
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button {
+      transition: none;
+    }
+  }
+</style>

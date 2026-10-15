@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'class:list'> {
+  href: string;
+  active?: boolean;
+}
+
+const { active = false, href, class: className, ...rest } = Astro.props;
+---
+
+<a
+  {...rest}
+  href={href}
+  class:list={['navItem', { active }, className]}
+  aria-current={active ? 'page' : false}
+>
+  <slot />
+</a>
+
+<style>
+  .navItem {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--paragraph-color);
+    text-decoration: none;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+
+  .navItem:hover {
+    color: var(--heading-color);
+  }
+
+  .navItem.active {
+    color: var(--accent-color);
+  }
+</style>

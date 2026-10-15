@@ -1,0 +1,61 @@
+---
+---
+
+<a href="/" class="logo" aria-label="Nathaniel Hernandez, home">
+  <span class="logo-text" aria-hidden="true">
+    /\/
+  </span>
+  <!-- <span class="cursor" aria-hidden="true"></span> -->
+</a>
+
+<style>
+  .logo {
+    font-family: var(--font-family-mono);
+    color: var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0;
+    /* width: 0; */
+    /* animation: type 0.9s steps(3, end) 0.4s forwards; */
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.6ch;
+    height: 1em;
+    margin-left: 2px;
+    background: var(--accent-color);
+    animation: blink 1s step-end infinite;
+  }
+
+  /* @keyframes type {
+    to {
+      width: 3ch;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-text {
+      width: 5ch;
+      animation: none;
+    }
+    .cursor {
+      animation: none;
+    }
+  } */
+</style>

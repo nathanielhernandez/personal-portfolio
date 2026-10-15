@@ -1,0 +1,116 @@
+---
+import Heading from './ui/Heading.astro';
+import Paragraph from './ui/Paragraph.astro';
+import Link from './ui/Link.astro';
+
+import {
+  IconBrandGithubFilled,
+  IconBrandLinkedinFilled,
+  IconFileCvFilled,
+} from '@tabler/icons-astro';
+
+const footerNav = [
+  { href: '/', title: 'Home' },
+  { href: '/projects', title: 'Projects' },
+  { href: '/about', title: 'About' },
+  { href: '/now', title: 'Now' },
+  { href: '/resume', title: 'Resume' },
+  { href: '/blog', title: 'Blog' },
+  { href: '/lab', title: 'Lab' },
+];
+---
+
+<footer>
+  <div class="container">
+    <div class="contact">
+      <Heading size="md">Let's work together</Heading>
+      <Paragraph>Open to frontend and full-stack roles.</Paragraph>
+      <Link href="/contact" linkType="internal">
+        Contact me
+      </Link>
+      <div class="socialButtons">
+        <Link
+          href="https://github.com/nathanielhernandez/"
+          linkType="footer"
+          aria-label="GitHub"
+        >
+          <IconBrandGithubFilled aria-hidden="true" />
+        </Link>
+        <Link
+          href="http://www.github.com"
+          linkType="footer"
+          aria-label="LinkedIn"
+        >
+          <IconBrandLinkedinFilled aria-hidden="true" />
+        </Link>
+        <Link
+          href="http://www.github.com"
+          linkType="footer"
+          aria-label="Resume"
+        >
+          <IconFileCvFilled aria-hidden="true" />
+        </Link>
+      </div>
+    </div>
+    <nav aria-label="Footer" class="footerNav">
+      {footerNav.map((nav) => (
+        <Link href={nav.href} linkType="footer">
+          {nav.title}
+        </Link>
+      ))}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    border-top: 1px solid var(--separator-color);
+    padding: 48px 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .socialButtons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footerNav {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    column-gap: 2vw;
+    row-gap: 1rem;
+    grid-auto-flow: column;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .contact {
+      text-align: center;
+      align-items: center;
+    }
+
+    .socialButtons {
+      justify-content: center;
+    }
+
+    .footerNav {
+      justify-content: space-between;
+      padding: 0 4rem;
+    }
+  }
+</style>

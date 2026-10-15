@@ -1,0 +1,78 @@
+---
+import Logo from './ui/Logo.astro';
+import NavItem from './ui/NavItem.astro';
+import MobileMenu from './react/MobileMenu';
+import ThemeToggle from './react/ThemeToggle';
+import Nav from '../components/react/Nav';
+
+const nav = [
+  { title: 'Home', href: '/' },
+  { title: 'Projects', href: '/projects' },
+  { title: 'About', href: '/about' },
+  { title: 'Now', href: '/now' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+
+const navWithActive = nav.map((item) => ({
+  ...item,
+  active: isActive(item.href),
+}));
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <Logo />
+    <div class="navContainer">
+      <Nav navItems={navWithActive} client:load transition:persist />
+      <ThemeToggle transition:persist client:load />
+      <span class="mobileMenu">
+        <MobileMenu
+          transition:persist
+          nav={navWithActive}
+          client:media="(max-width: 768px)"
+        />
+      </span>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+  }
+
+  .header__inner {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .desktopNavigation {
+    display: inline-flex;
+    gap: 1rem;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobileMenu {
+      display: inline-flex;
+    }
+  }
+</style>

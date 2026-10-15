@@ -1,0 +1,14 @@
+{
+  "singleQuote": true,
+  "plugins": ["prettier-plugin-astro"],
+  "editor.formatOnSave": true,
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": { "parser": "astro" }
+    }
+  ]
+}

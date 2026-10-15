@@ -1,16 +1,38 @@
 ---
+import PortfolioLayout from '../templates/PortfolioLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/ui/Section.astro';
+
+import Paragraph from '../components/ui/Paragraph.astro';
+
+import ProjectsHome from '../components/ProjectsHome.astro';
+import AboutHome from '../components/AboutHome.astro';
+import NowHome from '../components/NowHome.astro';
+import Link from '../components/ui/Link.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PortfolioLayout title="home">
+  <Hero title="I'm Nathaniel, a frontend developer and designer in Boston.">
+    <Paragraph size="md">
+      Accessible interfaces for government and design systems, built with React
+      and TypeScript.
+    </Paragraph>
+    <span>
+      <Link href="/contact" linkType="button">
+        Get in touch
+      </Link>
+    </span>
+  </Hero>
+  <Section
+    title="Things I'm working on"
+    endNav={{ href: '/projects', title: 'View all projects' }}
+  >
+    <ProjectsHome />
+  </Section>
+  <Section title="About me" endNav={{ href: '/about', title: 'More about me' }}>
+    <AboutHome />
+  </Section>
+  <Section title="Now" endNav={{ href: '/now', title: 'View all updates' }}>
+    <NowHome />
+  </Section>
+</PortfolioLayout>

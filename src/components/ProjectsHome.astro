@@ -1,0 +1,17 @@
+---
+import Link from './ui/Link.astro';
+import { getCollection } from 'astro:content';
+import Paragraph from './ui/Paragraph.astro';
+import Heading from './ui/Heading.astro';
+import ProjectGrid from './ProjectGrid.astro';
+
+const featuredProjects = (await getCollection('projects')).filter(
+  (p) => p.data.featured,
+);
+
+if (!featuredProjects) {
+  throw new Error('No projects found');
+}
+---
+
+<ProjectGrid projectList={featuredProjects} />

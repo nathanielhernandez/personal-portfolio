@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import { formatDate } from '../utils/formatDate';
+import Heading from './ui/Heading.astro';
+
+const latestNow = (await getCollection('nows')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+)[0];
+
+if (!latestNow) {
+  throw new Error('No entry found');
+}
+
+const { Content } = await render(latestNow);
+---
+
+<div class="latestNowContainer">
+  <Heading level={4} size="sm">
+    {formatDate(latestNow.data.pubDate)}
+  </Heading>
+  <div class="latestNow">
+    <Content />
+  </div>
+</div>
+
+<style>
+  .latestNow {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-lg);
+  }
+
+  .latestNowContainer {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

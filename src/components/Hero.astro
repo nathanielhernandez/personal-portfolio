@@ -1,0 +1,33 @@
+---
+import type { ComponentProps } from 'astro/types';
+
+import Heading from './ui/Heading.astro';
+import Paragraph from './ui/Paragraph.astro';
+import Button from './ui/Button.astro';
+
+type HeadingProps = ComponentProps<typeof Heading>;
+
+interface Props {
+  title: string;
+  subTitle?: string;
+  headingLevel?: HeadingProps['level'];
+  headingSize?: HeadingProps['size'];
+}
+
+const { title, headingLevel = 2, headingSize = 'xl' } = Astro.props;
+---
+
+<div class="heroContainer">
+  <Heading level={headingLevel} size={headingSize}>
+    {title}
+  </Heading>
+  <slot />
+</div>
+
+<style>
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

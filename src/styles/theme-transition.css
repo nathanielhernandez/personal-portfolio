@@ -1,0 +1,26 @@
+.theme-transition * {
+  view-transition-name: none !important;
+}
+
+.theme-transition::view-transition-old(root) {
+  animation: none;
+}
+
+.theme-transition::view-transition-new(root) {
+  animation: theme-reveal 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--theme-x) var(--theme-y));
+  }
+  to {
+    clip-path: circle(var(--theme-r) at var(--theme-x) var(--theme-y));
+  }
+}
+
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: none !important;
+}

@@ -1,0 +1,71 @@
+---
+import Heading from '../components/ui/Heading.astro';
+import Paragraph from './ui/Paragraph.astro';
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  projectList: CollectionEntry<'projects'>[];
+}
+
+const { projectList } = Astro.props;
+---
+
+<ul class="projectsHomeContainer">
+  {projectList.map((proj) => (
+    <li class="projectPeak">
+      <a href={`projects/${proj.id}`} class="projectCard">
+        <img src={proj.data.cover.src} alt={proj.data.coverAlt} />
+        <Heading level={4} size="md">
+          {proj.data.title}
+        </Heading>
+        <Paragraph>{proj.data.description}</Paragraph>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .projectsHomeContainer {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .projectPeak {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .projectPeak > a > img {
+    width: 100%;
+  }
+
+  a.projectCard {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: inherit;
+  }
+
+  a.projectCard:focus-visible {
+    outline: none;
+  }
+
+  a.projectCard:focus-visible > img {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+  }
+
+  .linkContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media screen and (max-width: 768px) {
+    .projectsHomeContainer {
+      flex-direction: column;
+    }
+  }
+</style>
