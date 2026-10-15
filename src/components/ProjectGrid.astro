@@ -13,7 +13,7 @@ const { projectList } = Astro.props;
 <ul class="projectsHomeContainer">
   {projectList.map((proj) => (
     <li class="projectPeak">
-      <a href={`projects/${proj.id}`} class="projectCard">
+      <a href={`/projects/${proj.id}`} class="projectCard">
         <img src={proj.data.cover.src} alt={proj.data.coverAlt} />
         <Heading level={4} size="md">
           {proj.data.title}
