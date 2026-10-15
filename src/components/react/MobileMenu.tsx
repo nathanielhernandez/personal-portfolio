@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef, useId } from 'react';
-import { createPortal } from 'react-dom';
 import { IconMenu2Filled, IconXFilled } from '@tabler/icons-react';
 import { motion, AnimatePresence, MotionConfig } from 'motion/react';
 import '../../styles/mobileMenu.css';
-import { button } from 'motion/react-client';
 
 interface NavItem {
   title: string;
@@ -40,7 +38,6 @@ const NavItem = ({ href, active, children, onClick }: NavButtonProps) => {
 
 export default function MobileMenu({ nav }: MobileMenuProps) {
   const [open, setOpen] = useState<boolean>(false);
-  const [theme, setTheme] = useState<string>('dark');
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const panelID = useId();

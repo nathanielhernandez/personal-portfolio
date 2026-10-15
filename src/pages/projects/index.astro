@@ -12,7 +12,7 @@ const allProjects = (await getCollection('projects')).sort((a, b) => {
 });
 ---
 
-<PortfolioLayout title="Home">
+<PortfolioLayout title="Projects">
   <Hero title="Projects">
     <Paragraph size="md">Things I've worked on or am working on.</Paragraph>
   </Hero>
@@ -33,7 +33,6 @@ const allProjects = (await getCollection('projects')).sort((a, b) => {
   .underConstruction {
     position: absolute;
     display: flex;
-    width:;
     z-index: 1000;
   }
 </style>

@@ -87,11 +87,3 @@ button.menuButton:enabled:active {
   height: 100lvh;
   background-color: rgb(0 0 0 / 0.4);
 }
-
-.mobileMenu::backdrop {
-  background: rgb(0 0 0 / 0.4);
-}
-
-html:has(.mobileMenu[open]) {
-  overflow: hidden;
-}

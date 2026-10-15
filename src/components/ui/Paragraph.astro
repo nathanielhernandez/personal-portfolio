@@ -13,6 +13,7 @@ const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
   class:list={[
     lineHeight == 'md' ? 'lineHeightMd' : 'lineHeightLg',
     size == 'sm' ? 'textSizeSm' : 'textSizeMd',
+    className,
   ]}
 >
   <slot />
