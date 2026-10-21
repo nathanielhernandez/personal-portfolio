@@ -6,7 +6,7 @@
   --card-bg-color: light-dark(var(--gray-0), var(--gray-92));
   --separator-color: light-dark(var(--gray-13), var(--gray-91));
   --heading-color: light-dark(var(--gray-87), var(--gray-7));
-  --paragraph-color: light-dark(var(--gray-60), var(--gray-40));
+  --paragraph-color: light-dark(var(--gray-64), var(--gray-32));
   --accent-color: light-dark(var(--green-700), var(--green-400));
   --image-border-color: light-dark(var(--gray-0), var(--gray-45));
 

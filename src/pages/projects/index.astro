@@ -5,34 +5,24 @@ import PortfolioLayout from '../../templates/PortfolioLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Section from '../../components/ui/Section.astro';
 import Paragraph from '../../components/ui/Paragraph.astro';
-import ProjectGrid from '../../components/ProjectGrid.astro';
 
 const allProjects = (await getCollection('projects')).sort((a, b) => {
   return a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
 });
 ---
 
-<PortfolioLayout title="Projects">
+<PortfolioLayout title="Projects · Nathaniel Hernandez">
   <Hero title="Projects">
-    <Paragraph size="md">Things I've worked on or am working on.</Paragraph>
+    <Paragraph>A curation of things I've tinkered with.</Paragraph>
   </Hero>
 
   <Section>
-    <!-- <div class="underConstruction">Under construction</div>
-    <div class="blur"> -->
-    <ProjectGrid projectList={allProjects} />
-    <!-- </div> -->
+    <Paragraph size="xs">Projects are coming soon!</Paragraph>
   </Section>
 </PortfolioLayout>
 
 <style>
   .blur {
     filter: blur(16px);
-  }
-
-  .underConstruction {
-    position: absolute;
-    display: flex;
-    z-index: 1000;
   }
 </style>

@@ -1,5 +1,43 @@
 ---
+import { getCollection } from 'astro:content';
+
+import Hero from '../../components/Hero.astro';
+import Paragraph from '../../components/ui/Paragraph.astro';
 import PortfolioLayout from '../../templates/PortfolioLayout.astro';
+import Section from '../../components/ui/Section.astro';
+import Now from './Now.astro';
+
+const allNows = (await getCollection('nows')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+);
 ---
 
-<PortfolioLayout title="Now">Now</PortfolioLayout>
+<PortfolioLayout title="Now · Nathaniel Hernandez">
+  <Hero title="Now" headingLevel={1}>
+    <Paragraph>Small updates about what's going on in my life.</Paragraph>
+  </Hero>
+  <Section>
+    {allNows.map((now) => (
+      <div class="timeline">
+        <Now now={now} />
+      </div>
+    ))}
+  </Section>
+</PortfolioLayout>
+
+<style>
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 2px;
+    background-color: var(--accent-color);
+  }
+</style>

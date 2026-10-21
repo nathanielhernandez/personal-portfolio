@@ -1,5 +1,15 @@
 ---
+import Hero from '../../components/Hero.astro';
+import Paragraph from '../../components/ui/Paragraph.astro';
 import PortfolioLayout from '../../templates/PortfolioLayout.astro';
+import Section from '../../components/ui/Section.astro';
 ---
 
-<PortfolioLayout title="Blog">Blog</PortfolioLayout>
+<PortfolioLayout title="Blog · Nathaniel Hernandez">
+  <Hero title="Blog" headingLevel={1}>
+    <Paragraph>More in-depth writings about topics that interest me.</Paragraph>
+  </Hero>
+  <Section>
+    <Paragraph size="xs">I'm still writing.</Paragraph>
+  </Section>
+</PortfolioLayout>

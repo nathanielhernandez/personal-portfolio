@@ -30,9 +30,10 @@ const { href, linkType, class: className, ...rest } = Astro.props;
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-family: var(--font-family-sans);
     transition: color 150ms ease;
+    line-height: var(--line-height-lg);
   }
 
   a:hover {
@@ -51,7 +52,7 @@ const { href, linkType, class: className, ...rest } = Astro.props;
     min-width: 6rem;
     padding: 0 1rem;
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: 600;
     cursor: pointer;
     transition:

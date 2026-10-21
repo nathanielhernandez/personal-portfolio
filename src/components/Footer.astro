@@ -24,15 +24,17 @@ const footerNav = [
   <div class="container">
     <div class="contact">
       <Heading size="md">Let's work together</Heading>
-      <Paragraph>Open to frontend and full-stack roles.</Paragraph>
+      <Paragraph size="xs">Open to frontend and full-stack roles.</Paragraph>
       <Link href="/contact" linkType="internal">
         Contact me
       </Link>
+
       <div class="socialButtons">
         <Link
           href="https://github.com/nathanielhernandez/"
           linkType="footer"
           aria-label="GitHub"
+          target="_blank"
         >
           <IconBrandGithubFilled aria-hidden="true" />
         </Link>
@@ -40,16 +42,17 @@ const footerNav = [
           href="https://www.linkedin.com/in/nathanielhernandez/"
           linkType="footer"
           aria-label="LinkedIn"
+          target="_blank"
         >
           <IconBrandLinkedinFilled aria-hidden="true" />
         </Link>
-        <Link
+        <!-- <Link
           href="http://www.github.com"
           linkType="footer"
           aria-label="Resume"
         >
           <IconFileCvFilled aria-hidden="true" />
-        </Link>
+        </Link> -->
       </div>
     </div>
     <nav aria-label="Footer" class="footerNav">

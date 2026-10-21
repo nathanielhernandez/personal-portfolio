@@ -3,7 +3,7 @@ import { type HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'p'> {
   lineHeight?: 'md' | 'lg';
-  size?: 'md' | 'sm';
+  size?: 'md' | 'sm' | 'xs';
 }
 
 const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
@@ -12,7 +12,7 @@ const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
 <p
   class:list={[
     lineHeight == 'md' ? 'lineHeightMd' : 'lineHeightLg',
-    size == 'sm' ? 'textSizeSm' : 'textSizeMd',
+    `${size}TextSize`,
     className,
   ]}
 >
@@ -33,11 +33,15 @@ const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
     line-height: var(--line-height-lg);
   }
 
-  .textSizeSm {
+  .xsTextSize {
+    font-size: var(--font-size-xs);
+  }
+
+  .smTextSize {
     font-size: var(--font-size-sm);
   }
 
-  .textSizeMd {
+  .mdTextSize {
     font-size: var(--font-size-md);
   }
 </style>
