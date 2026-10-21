@@ -1,0 +1,6 @@
+/* tokens/semantic/layout.css */
+
+:root {
+  --header-height: 72px;
+  --container-max-width: 800px;
+}

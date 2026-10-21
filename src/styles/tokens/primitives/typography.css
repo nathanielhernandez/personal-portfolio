@@ -1,6 +1,8 @@
+/* tokens/primitives/typography.css */
+
 :root {
-  --font-family-sans-narrow: 'PT Sans Narrow', sans-serif;
-  --font-family-sans: 'Source Sans 3', sans-serif;
+  --font-family-serif: 'Noto Serif', serif;
+  --font-family-sans: 'Noto Sans', sans-serif;
   --font-family-mono: 'Source Code Pro', monospace;
 
   --font-size-xxl: 4.5rem;

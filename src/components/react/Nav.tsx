@@ -1,5 +1,5 @@
 import { MotionConfig, motion } from 'motion/react';
-import '../../styles/navMenu.css';
+import '../../styles/components/navMenu.css';
 
 type NavItem = {
   title: string;

@@ -1,0 +1,22 @@
+/* tokens/semantic/theme.css
+ * Picks the active scheme, which drives every light-dark() token.
+ * Dark by default; follows the OS when no theme is saved.
+ */
+
+:root {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}

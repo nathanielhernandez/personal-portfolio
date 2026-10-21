@@ -1,0 +1,6 @@
+/* tokens/semantic/typography.css */
+
+:root {
+  --heading-font-family: var(--font-family-serif);
+  --body-font-family: var(--font-family-sans);
+}

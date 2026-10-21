@@ -1,0 +1,15 @@
+/* tokens/semantic/colors.css */
+
+:root {
+  /* Surfaces & text */
+  --bg-color: light-dark(var(--gray-7), var(--gray-95));
+  --card-bg-color: light-dark(var(--gray-0), var(--gray-92));
+  --separator-color: light-dark(var(--gray-13), var(--gray-91));
+  --heading-color: light-dark(var(--gray-87), var(--gray-7));
+  --paragraph-color: light-dark(var(--gray-60), var(--gray-40));
+  --accent-color: light-dark(var(--green-700), var(--green-400));
+  --image-border-color: light-dark(var(--gray-0), var(--gray-45));
+
+  /* Focus — accent ring, ≥4.9:1 against page and card in both themes */
+  --focus-ring-color: var(--accent-color);
+}

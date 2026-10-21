@@ -1,0 +1,44 @@
+/* tokens/primitives/colors.css
+ * Raw palette. No theme logic and no meaning — only semantic tokens should
+ * reference these.
+ *
+ * Gray steps are roughly "% darkness" (0 = white, 100 = black), so a new
+ * shade can slot in between existing ones without renaming.
+ */
+
+:root {
+  /* Neutrals */
+  --gray-0: #fff;
+  --gray-7: #eee;
+  --gray-11: #e2e2e2;
+  --gray-13: #dfdfdf;
+  --gray-15: #d8d8d8;
+  --gray-23: #c4c4c4;
+  --gray-31: #b1b2b5;
+  --gray-37: #a0a0a0;
+  --gray-40: #9a9a9a;
+  --gray-45: #8d8d8d;
+  --gray-46: #8a8a8a;
+  --gray-50: #808080;
+  --gray-54: #767676;
+  --gray-58: #6b6b6b;
+  --gray-60: #666;
+  --gray-64: #5c5c5c;
+  --gray-68: #515151;
+  --gray-77: #3a3a3a;
+  --gray-86: #242424;
+  --gray-87: #222;
+  --gray-89: #1c1c1c;
+  --gray-90: #1a1a1a;
+  --gray-91: #181818;
+  --gray-92: #141414;
+  --gray-95: #0c0c0c;
+
+  /* Greens (accent) */
+  --green-300: #8edb5e;
+  --green-400: #79cf46;
+  --green-500: #68b83a;
+  --green-700: #3a7300;
+  --green-800: #306000;
+  --green-900: #274e00;
+}

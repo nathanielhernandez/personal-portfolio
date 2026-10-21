@@ -8,7 +8,7 @@ import Button from './ui/Button.astro';
 type HeadingProps = ComponentProps<typeof Heading>;
 
 interface Props {
-  title: string;
+  title?: string;
   subTitle?: string;
   headingLevel?: HeadingProps['level'];
   headingSize?: HeadingProps['size'];

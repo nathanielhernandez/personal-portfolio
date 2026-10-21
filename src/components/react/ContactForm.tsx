@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
-import '../../styles/contact.css';
+import '../../styles/components/contact.css';
 
 export default function ContactForm({ children }: any) {
   const [state, handleSubmit] = useForm('xaeqaozb');

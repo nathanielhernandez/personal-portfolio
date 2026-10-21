@@ -14,7 +14,7 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- Keep in sync with --bg-color in tokens/colors.css -->
+    <!-- Keep in sync with --bg-color in tokens/semantic/colors.css -->
     <meta name="theme-color" content="#0c0c0c" />
     <script is:inline>
       (() => {
@@ -33,7 +33,7 @@ const { title } = Astro.props;
           if (saved) document.documentElement.dataset.theme = saved;
           else delete document.documentElement.dataset.theme;
 
-          // Same fallback as colors.css: dark unless the OS prefers light
+          // Same fallback as tokens/semantic/theme.css: dark unless the OS prefers light
           const theme = saved ?? (prefersLight.matches ? 'light' : 'dark');
 
           document
@@ -54,6 +54,12 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -77,7 +83,7 @@ const { title } = Astro.props;
     width: 100%;
     margin: 48px 0;
     gap: 48px;
-    max-width: 768px;
+    max-width: var(--container-max-width);
     margin-inline: auto;
     padding-inline: 1rem;
   }

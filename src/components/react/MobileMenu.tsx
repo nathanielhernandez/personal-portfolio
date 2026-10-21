@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useId } from 'react';
 import { IconMenu2Filled, IconXFilled } from '@tabler/icons-react';
 import { motion, AnimatePresence, MotionConfig } from 'motion/react';
-import '../../styles/mobileMenu.css';
+import '../../styles/components/mobileMenu.css';
 
 interface NavItem {
   title: string;

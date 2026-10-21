@@ -1,0 +1,10 @@
+/* tokens/components/input.css */
+
+:root {
+  --input-bg-color: light-dark(var(--gray-0), var(--gray-95));
+  --input-border-color: light-dark(var(--gray-46), var(--gray-58));
+  --input-border-hover-color: light-dark(var(--gray-60), var(--gray-45));
+  --input-border-focus-color: var(--accent-color);
+  --input-text-color: var(--heading-color);
+  --input-placeholder-color: light-dark(var(--gray-54), var(--gray-50));
+}

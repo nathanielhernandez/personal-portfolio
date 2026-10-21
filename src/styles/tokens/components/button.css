@@ -1,0 +1,27 @@
+/* tokens/components/button.css */
+
+:root {
+  /* Primary — accent fill */
+  --button-primary-bg-color: var(--accent-color);
+  --button-primary-bg-hover-color: light-dark(var(--green-800), var(--green-300));
+  --button-primary-bg-active-color: light-dark(var(--green-900), var(--green-500));
+  --button-primary-text-color: light-dark(var(--gray-0), var(--gray-95));
+
+  /* Secondary — neutral fill */
+  --button-secondary-bg-color: light-dark(var(--gray-7), var(--gray-92));
+  --button-secondary-bg-hover-color: light-dark(var(--gray-11), var(--gray-89));
+  --button-secondary-bg-active-color: light-dark(var(--gray-15), var(--gray-86));
+  --button-secondary-border-color: light-dark(var(--gray-23), var(--gray-77));
+  --button-secondary-text-color: light-dark(var(--gray-68), var(--gray-31));
+  --button-secondary-text-hover-color: var(--heading-color);
+
+  /* Ghost — transparent until interacted with */
+  --button-ghost-text-color: var(--button-secondary-text-color);
+  --button-ghost-text-hover-color: var(--heading-color);
+  --button-ghost-bg-hover-color: var(--button-secondary-bg-hover-color);
+  --button-ghost-bg-active-color: var(--button-secondary-bg-active-color);
+
+  /* Disabled — any variant (exempt from WCAG contrast) */
+  --button-disabled-bg-color: light-dark(var(--gray-13), var(--gray-90));
+  --button-disabled-text-color: light-dark(var(--gray-37), var(--gray-64));
+}

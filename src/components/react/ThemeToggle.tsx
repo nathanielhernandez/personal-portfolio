@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, type MouseEvent } from 'react';
 import { flushSync } from 'react-dom';
 import { IconSunFilled, IconMoonFilled } from '@tabler/icons-react';
 import { motion, AnimatePresence, MotionConfig } from 'motion/react';
-import '../../styles/mobileMenu.css';
+import '../../styles/components/mobileMenu.css';
 
 type Preference = 'system' | 'light' | 'dark';
 type Theme = 'light' | 'dark';

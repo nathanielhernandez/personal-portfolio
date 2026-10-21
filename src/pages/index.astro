@@ -9,11 +9,15 @@ import ProjectsHome from '../components/ProjectsHome.astro';
 import AboutHome from '../components/AboutHome.astro';
 import NowHome from '../components/NowHome.astro';
 import Link from '../components/ui/Link.astro';
+import Heading from '../components/ui/Heading.astro';
 ---
 
 <PortfolioLayout title="Nathaniel Hernandez">
-  <Hero title="I'm Nathaniel, a frontend developer and designer in Boston.">
-    <Paragraph size="md">
+  <Hero>
+    <Heading level={1} size="xl">
+      I'm Nathaniel, a frontend developer and designer in Boston.
+    </Heading>
+    <Paragraph size="sm">
       Accessible interfaces for government and design systems, built with React
       and TypeScript.
     </Paragraph>

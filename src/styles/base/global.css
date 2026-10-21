@@ -1,12 +1,4 @@
-:root {
-  --header-height: 72px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* base/global.css */
 
 body {
   margin: 0;
@@ -15,20 +7,13 @@ body {
   flex-direction: column;
   background-color: var(--bg-color);
   color: var(--paragraph-color);
-  font-family: var(--font-family-sans);
+  font-family: var(--body-font-family);
   line-height: 1.5;
   position: relative;
 }
 
-ul {
-  list-style: none;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
-}
-
 .container {
-  max-width: 768px;
+  max-width: var(--container-max-width);
   margin-inline: auto;
   padding-inline: 1rem;
 }
