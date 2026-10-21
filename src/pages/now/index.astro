@@ -8,7 +8,7 @@ import Section from '../../components/ui/Section.astro';
 import Now from './Now.astro';
 
 const allNows = (await getCollection('nows')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
@@ -17,11 +17,11 @@ const allNows = (await getCollection('nows')).sort(
     <Paragraph>Small updates about what's going on in my life.</Paragraph>
   </Hero>
   <Section>
-    {allNows.map((now) => (
-      <div class="timeline">
+    <div class="timeline">
+      {allNows.map((now) => (
         <Now now={now} />
-      </div>
-    ))}
+      ))}
+    </div>
   </Section>
 </PortfolioLayout>
 
