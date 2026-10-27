@@ -9,8 +9,6 @@ import Section from '../../components/ui/Section.astro';
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
 
-  console.log(projects[0].data.stack);
-
   return projects.map((project) => ({
     params: { id: project.id },
     props: { project },

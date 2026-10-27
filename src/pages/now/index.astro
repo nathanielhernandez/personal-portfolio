@@ -5,7 +5,7 @@ import Hero from '../../components/Hero.astro';
 import Paragraph from '../../components/ui/Paragraph.astro';
 import PortfolioLayout from '../../templates/PortfolioLayout.astro';
 import Section from '../../components/ui/Section.astro';
-import Now from './Now.astro';
+import Now from '../../components/Now.astro';
 
 const allNows = (await getCollection('nows')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
