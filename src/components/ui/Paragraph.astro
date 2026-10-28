@@ -6,7 +6,12 @@ interface Props extends HTMLAttributes<'p'> {
   size?: 'md' | 'sm' | 'xs';
 }
 
-const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
+const {
+  lineHeight = 'md',
+  size = 'sm',
+  class: className,
+  ...rest
+} = Astro.props;
 ---
 
 <p
@@ -15,6 +20,7 @@ const { lineHeight = 'md', size = 'sm', class: className } = Astro.props;
     `${size}TextSize`,
     className,
   ]}
+  {...rest}
 >
   <slot />
 </p>

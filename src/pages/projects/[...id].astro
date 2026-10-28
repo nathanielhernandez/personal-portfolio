@@ -19,7 +19,10 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<PortfolioLayout title={project.data.title}>
+<PortfolioLayout
+  title={`${project.data.title} · Nathaniel Hernandez`}
+  description={project.data.description}
+>
   <Hero title={project.data.title}>
     <Paragraph>{project.data.description}</Paragraph>
   </Hero>

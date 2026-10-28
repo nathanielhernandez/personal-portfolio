@@ -1,13 +1,40 @@
 ---
-import Hero from '../components/Hero.astro';
+import Link from '../components/ui/Link.astro';
 import Paragraph from '../components/ui/Paragraph.astro';
 import PortfolioLayout from '../templates/PortfolioLayout.astro';
 ---
 
-<PortfolioLayout title="Error: 404 · Nathaniel Hernandez">
-  <Hero title="Hmmm..." headingLevel={1}>
-    <Paragraph>
-      Seems like the page you're looking for can't be found.
+<PortfolioLayout title="Error: 404 · Nathaniel Hernandez" noindex>
+  <div class="container404">
+    <h1
+      style={{
+        fontSize: 'clamp(8rem, 40vw, 16rem)',
+        color: 'var(--heading-color)',
+        fontFamily: 'var(--font-family-serif)',
+        fontWeight: 300,
+        lineHeight: 'var(--line-height-md)',
+        margin: 0,
+      }}
+    >
+      404
+    </h1>
+    <Paragraph style={{ marginBottom: '1rem' }}>
+      The page you're looking for does not exist.
     </Paragraph>
-  </Hero>
+    <Link linkType="button" href="/">
+      Return Home
+    </Link>
+  </div>
 </PortfolioLayout>
+
+<style>
+  .container404 {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+</style>

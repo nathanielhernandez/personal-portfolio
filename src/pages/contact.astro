@@ -6,8 +6,11 @@ import Button from '../components/ui/Button.astro';
 import ContactForm from '../components/react/ContactForm';
 ---
 
-<PortfolioLayout title="Contact · Nathaniel Hernandez">
-  <Hero title="Contact me" />
+<PortfolioLayout
+  title="Contact · Nathaniel Hernandez"
+  description="Get in touch with Nathaniel Hernandez about frontend and full-stack roles, projects, or questions."
+>
+  <Hero title="Contact" />
   <Section>
     <ContactForm client:load>
       <div class="test">

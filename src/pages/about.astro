@@ -1,13 +1,74 @@
 ---
+import { Image } from 'astro:assets';
+import exploring from '../assets/img/exploring.jpg';
+
 import Hero from '../components/Hero.astro';
 import Paragraph from '../components/ui/Paragraph.astro';
 import PortfolioLayout from '../templates/PortfolioLayout.astro';
 import Section from '../components/ui/Section.astro';
+import Link from '../components/ui/Link.astro';
 ---
 
-<PortfolioLayout title="About · Nathaniel Hernandez">
+<PortfolioLayout
+  title="About · Nathaniel Hernandez"
+  description="How a ten-year-old with Photoshop became a frontend developer and UX designer in Boston."
+>
   <Hero title="About" headingLevel={1}>
     <Paragraph>Let's get to know each other.</Paragraph>
   </Hero>
-  <Section title="The short version.">Test</Section>
+  <Section title="The TL;DR version">
+    <!-- prettier-ignore -->
+    <Paragraph size="xs" lineHeight="lg">
+      I'm a developer and designer based in Boston, Massachusetts. My passion is
+      creating beautiful, accessible interfaces that are a joy to both look at
+      and use. I'd love to hear from you. Email me at
+      <Link href="mailto:hello@nathanielhernandez.me">
+        hello@nathanielhernandez.me
+      </Link>.
+    </Paragraph>
+  </Section>
+  <Section title="The full story">
+    <Image
+      src={exploring}
+      alt="Nathaniel standing on the crest of a sand dune under a cloudy sky"
+      layout="constrained"
+      width={768}
+
+      position="bottom"
+      quality={'high'}
+      class="aboutPhoto"
+    />
+    <Paragraph size="xs" lineHeight="lg">
+      I first opened Photoshop at ten years old, which sparked my passion for
+      graphic design. I spent my early years designing logos for small
+      businesses and building mock brand identities for fun.
+    </Paragraph>
+    <Paragraph size="xs" lineHeight="lg">
+      Around the age of thirteen, I discovered I could combine design with web
+      development using HTML and CSS. It perfectly scratched the creative and
+      technical itch I'd always had. I felt confident in my ability to design
+      but wanted to strengthen my technical knowledge, so I decided to pursue a
+      degree in Computer Science at Boise State University.
+    </Paragraph>
+    <Paragraph size="xs" lineHeight="lg">
+      After graduating, I joined a local company that offered a path into UI/UX
+      design. I took it, and that path led to where I am now: a frontend
+      developer and UX designer who gets to do both every day.
+    </Paragraph>
+  </Section>
 </PortfolioLayout>
+
+<style>
+  .aboutPhoto {
+    width: 100%;
+    aspect-ratio: 768 / 468;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  @media screen and (max-width: 768px) {
+    .aboutPhoto {
+      aspect-ratio: auto;
+    }
+  }
+</style>

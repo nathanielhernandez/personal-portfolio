@@ -38,4 +38,92 @@ input:hover {
 }
 label {
   color: var(--heading-color);
+  font-weight: 500;
+}
+
+.contactMessage {
+  font-family: var(--font-family-serif);
+  font-weight: 400;
+  font-size: var(--font-size-lg);
+  color: var(--heading-color);
+  margin: 0 0 0 0;
+}
+
+.contactSent {
+  min-height: 432px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.contactEmail {
+  color: var(--heading-color);
+}
+
+.checkBox {
+  border: 2px solid var(--accent-color);
+  aspect-ratio: 1;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-sans);
+  transition: color 150ms ease;
+  line-height: var(--line-height-lg);
+  cursor: pointer;
+}
+
+button.link:hover {
+  color: var(--button-primary-bg-hover-color);
+  text-decoration: underline;
+}
+
+button.link:active {
+  color: var(--button-primary-bg-active-color);
+}
+
+ul.contactOptions {
+  border-bottom: 1px solid var(--separator-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+a.option {
+  border-top: 1px solid var(--separator-color);
+  min-height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--heading-color);
+}
+
+a.option:hover {
+  color: var(--heading-color);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .contactSent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-content: center;
+  }
 }
