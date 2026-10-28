@@ -48,12 +48,12 @@ export default function ContactForm({ children }: any) {
               <div className="message">
                 <h2 className="contactMessage">Message sent</h2>
                 <p>
-                  Thanks for reaching out. I'll reply to
+                  Thanks for reaching out. I'll reply to{' '}
                   {email ? (
                     <span className="contactEmail">{email}</span>
                   ) : (
-                    ' you'
-                  )}{' '}
+                    'you'
+                  )}
                   within a couple of days.
                 </p>
                 <button className="link" onClick={reset}>
