@@ -1,0 +1,49 @@
+html {
+  background: #333;
+  font:
+    500 150%/1.4 system-ui,
+    sans-serif;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 30% 30%, #8771ff, transparent 50%),
+    radial-gradient(circle at 70% 40%, #ff71d7, transparent 50%),
+    radial-gradient(circle at 50% 75%, #ff7171, transparent 50%);
+  animation: spin 20s linear infinite;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 65% 70%, #71c4ff, transparent 50%),
+    radial-gradient(circle at 30% 60%, #71f0ff, transparent 50%),
+    radial-gradient(circle at 55% 25%, #ff71ab, transparent 50%);
+
+  opacity: 0.8;
+  animation: spin 25s linear infinite reverse;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -3,27 +3,45 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
 type Size = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type Style = 'sans' | 'serif';
 
 interface Props extends HTMLAttributes<'h1'> {
   level?: Level;
   size?: Size;
+  fontStyle?: Style;
 }
 
-const { level = 2, size, class: className, ...rest } = Astro.props;
+const {
+  level = 2,
+  size,
+  fontStyle = 'serif',
+  class: className,
+  ...rest
+} = Astro.props;
 const Tag = `h${level}` as const;
 ---
 
-<Tag class:list={['heading', size && `heading-${size}`, className]} {...rest}>
+<Tag
+  class:list={['heading', size && `heading-${size}`, fontStyle, className]}
+  {...rest}
+>
   <slot />
 </Tag>
 
 <style>
   .heading {
-    font-family: var(--heading-font-family);
     font-weight: 400;
     line-height: 1.1;
     color: var(--heading-color);
     margin: 0;
+  }
+
+  .serif {
+    font-family: var(--font-family-serif);
+  }
+
+  .sans {
+    font-family: var(--font-family-sans);
   }
 
   .heading-xxl {

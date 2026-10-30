@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import { ClientRouter, slide } from 'astro:transitions';
+import LabDemo from '../../../components/react/LabDemo';
+
+export async function getStaticPaths() {
+  const labs = await getCollection('labs');
+
+  return labs.map((lab) => ({
+    params: { slug: lab.id },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <LabDemo slug={slug} client:only />
+  </body>
+</html>
+
+<style></style>

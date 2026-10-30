@@ -25,4 +25,16 @@ const nows = defineCollection({
   }),
 });
 
-export const collections = { nows, projects };
+const labs = defineCollection({
+  loader: glob({ base: './src/content/lab', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    draft: z.boolean(),
+    stack: z.array(z.string()),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { nows, projects, labs };

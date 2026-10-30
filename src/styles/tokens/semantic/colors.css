@@ -9,6 +9,7 @@
   --paragraph-color: light-dark(var(--gray-64), var(--gray-32));
   --accent-color: light-dark(var(--green-700), var(--green-400));
   --image-border-color: light-dark(var(--gray-0), var(--gray-45));
+  --card-bg-color: light-dark(var(--gray-3), var(--gray-90));
 
   /* Focus — accent ring, ≥4.9:1 against page and card in both themes */
   --focus-ring-color: var(--accent-color);
