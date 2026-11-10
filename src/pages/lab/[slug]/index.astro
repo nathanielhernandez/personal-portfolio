@@ -1,56 +1,59 @@
 ---
 import { getCollection } from 'astro:content';
-
-interface LabMeta {
-  title: string;
-  description: string;
-  draft?: boolean;
-}
+import PortfolioLayout from '../../../templates/PortfolioLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import Section from '../../../components/ui/Section.astro';
+import { Code } from 'astro:components';
 
 export async function getStaticPaths() {
   const labs = await getCollection('labs');
 
-  console.log(labs);
-  const metas = import.meta.glob<{ meta: LabMeta }>('/src/lab/*/meta.ts', {
-    eager: true,
-  });
-
-  const sources = import.meta.glob<string>('/src//lab/*/*.{tsx,css}', {
+  const sources = import.meta.glob<string>('/src/lab/*/*.{tsx,css}', {
     query: '?raw',
     import: 'default',
     eager: true,
   });
 
-  console.log(metas);
+  return labs.map((lab) => {
+    const folder = `/src/lab/${lab.id}/`;
+    const files = Object.entries(sources)
+      .filter(([path]) => path.startsWith(folder))
+      .map(([path, code]) => ({
+        name: path.slice(folder.length),
+        lang: path.endsWith('.css') ? 'css' : 'tsx',
+        code,
+      }));
 
-  console.log(sources);
-
-  return Object.entries(metas).map(([path, { meta }]) => {
-    const folder = path.replace('meta.ts', '');
-    const slug = folder.split('/').at(-2);
-
-    const files = Object.entries(sources).map(([path, code]) => ({
-      name: path.slice(folder.length),
-      lang: path.endsWith('.css') ? 'css' : 'tsx',
-      code,
-    }));
-
-    console.log(files);
-    return { params: { slug }, props: { meta, files } };
+    return { params: { slug: lab.id }, props: { lab, files } };
   });
 }
 
 const { slug } = Astro.params;
-const { meta, files } = Astro.props;
+const { lab, files } = Astro.props;
 ---
 
-<div>{meta.title}</div>
+<PortfolioLayout title=`${lab.data.title} · Nathaniel Hernandez`>
+  <Hero title=`${lab.data.title}`>
+    <div>{lab.data.description}</div>
+  </Hero>
+  <Section>
+    <iframe
+      src={`/lab/${slug}/frame`}
+      sandbox="allow-scripts allow-same-origin"
+      class="frame"
+      title={`${lab.data.title} demo`}
+    />
+    <p>
+      <a href={`/lab/${slug}/frame`} target="_blank" rel="noopener">
+        Open demo in a new tab
+      </a>
+    </p>
+  </Section>
+</PortfolioLayout>
 
-<iframe
-  src="/lab/lab-test/frame"
-  sandbox="allow-scripts allow-same-origin"
-  width="300"
-  height="200"
-  title="Example Page"
-  transfo
-></iframe>
+<style>
+  iframe {
+    height: 400px;
+    border: 1px solid var(--separator-color);
+  }
+</style>

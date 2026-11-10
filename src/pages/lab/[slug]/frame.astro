@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { ClientRouter, slide } from 'astro:transitions';
+import '../../../styles/tokens/semantic/theme.css';
 import LabDemo from '../../../components/react/LabDemo';
 
 export async function getStaticPaths() {
@@ -18,10 +18,38 @@ const { slug } = Astro.params;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (() => {
+        function applyTheme() {
+          let saved = null;
+          try {
+            saved = localStorage.getItem('theme');
+          } catch {}
+
+          if (saved !== 'light' && saved !== 'dark') saved = null;
+
+          if (saved) document.documentElement.dataset.theme = saved;
+          else delete document.documentElement.dataset.theme;
+        }
+
+        applyTheme();
+        // The parent page's toggle writes localStorage, which fires 'storage' here
+        window.addEventListener('storage', (e) => {
+          if (e.key === 'theme' || e.key === null) applyTheme();
+        });
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{slug}</title>
   </head>
   <body>
     <LabDemo slug={slug} client:only />
   </body>
 </html>
 
-<style></style>
+<style is:global>
+  html,
+  body {
+    margin: 0;
+  }
+</style>
