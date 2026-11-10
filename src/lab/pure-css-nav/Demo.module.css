@@ -1,0 +1,127 @@
+.main {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+
+  /* Colors */
+
+  --nav-bg: light-dark(#f6f8fa, #151b23);
+  --nav-border: light-dark(#d1d9e0, #3d444d);
+  --pill-fill: light-dark(#fff, #2a313c);
+  --pill-border: light-dark(#d1d9e0, #3d444d);
+  --pill-shadow: light-dark(rgba(31, 35, 40, 0.08), rgba(1, 4, 9, 0.6));
+  --link-text: light-dark(#59636e, #9198a1);
+  --hover-active-text: light-dark(#1f2328, #f0f6fc);
+}
+
+.main nav {
+  background-color: var(--bg-color);
+  border: 1px solid var(--nav-border);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  isolation: isolate;
+  border-radius: 9999px;
+}
+
+.main ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.main ul li a {
+  color: var(--link-text);
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    scale 0.3s ease-out;
+  font-family: Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main ul li:active a {
+  scale: 1.05;
+  transition:
+    color 0.2s,
+    scale 0s;
+}
+
+.main ul li a:hover,
+.main ul li.active a {
+  color: var(--hover-active-text);
+}
+
+.main ul:has(li:hover) li.active:not(:hover) a {
+  color: var(--link-text);
+}
+
+.main ul:before {
+  content: '';
+  position: absolute;
+  position-anchor: --pill;
+  inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+  background: var(--pill-fill);
+  transition:
+    inset 0.2s,
+    scale 0.3s ease-out;
+  border-radius: 9999px;
+  box-shadow:
+    inset 0 0 0 1px var(--pill-border),
+    0 1px 2px var(--pill-shadow);
+  z-index: -1;
+}
+
+.main ul:has(li:active)::before {
+  scale: 1.05;
+  transition:
+    inset 0.2s,
+    scale 0s;
+}
+
+.main ul li.active {
+  anchor-name: --pill;
+}
+
+@media (hover: hover) {
+  .main ul li:hover {
+    anchor-name: --pill;
+  }
+
+  .main ul:has(li:hover) li.active:not(:hover) {
+    anchor-name: none;
+  }
+}
+
+.main ul li:has(a:focus-visible) {
+  anchor-name: --pill;
+}
+
+.main ul:has(a:focus-visible) li.active:not(:has(a:focus-visible)) {
+  anchor-name: none;
+}
+
+.main ul li a:focus-visible {
+  color: var(--hover-active-text);
+}
+
+.main ul:has(a:focus-visible) li.active:not(:has(a:focus-visible)) a {
+  color: var(--link-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main ul li a,
+  .main ul::before {
+    transition: none;
+  }
+
+  .main ul li:active a,
+  .main ul:has(li:active)::before {
+    scale: none;
+  }
+}

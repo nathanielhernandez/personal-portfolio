@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "new-lab": "node scripts/new-lab.mjs",
+    "snap-labs": "node scripts/snap-labs.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.4",
@@ -26,6 +28,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "playwright": "^1.65.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.1"
   }
